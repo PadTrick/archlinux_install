@@ -1,7 +1,6 @@
-#!/bin/sh
-loadkeys de-latin1
-curl https://raw.githubusercontent.com/padtrick/arch_install/main/current_install.sh -o current_install.sh
-chmod +x current_install.sh
+#!/usr/bin/env bash
+curl https://raw.githubusercontent.com/padtrick/archlinux_install/main/archlinux_install.sh -o archlinux_install.sh
+chmod +x archlinux_install.sh
 clear
 lsblk
-sh current_install.sh
+sh archlinux_install.sh
