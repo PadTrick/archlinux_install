@@ -146,6 +146,8 @@ then
 elif [[ $DESKTOP == '3' ]]
 then 
     pacman -S gnome gdm --noconfirm --needed
+    systemctl enable gdm
+elif [[ $DESKTOP == '4' ]]    
 then
     pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter --noconfirm --needed
     systemctl enable lightdm
@@ -238,6 +240,7 @@ then
     curl https://raw.githubusercontent.com/PadTrick/hyperland_install/main/install.sh -o install.sh
     chmod +x install.sh
     sh install.sh
+fi
 
 echo "-------------------------------------------------"
 echo "Install Complete, You can reboot now"
