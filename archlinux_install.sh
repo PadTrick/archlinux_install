@@ -243,8 +243,8 @@ then
     
     echo "-----------------------------------------------------------"
     echo "You have to finish your Hyprland installation after reboot."
-    echo "Reboot, login and type the following command:"
-    echo "sh install.sh"
+    echo "Reboot, login, start kitty (or any other konsole) and type"
+    echo "the following command: sh install.sh in your HOME directory."
     echo "-----------------------------------------------------------"
 else
     echo "-------------------------------------------------"
