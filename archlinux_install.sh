@@ -236,18 +236,23 @@ localectl --no-convert set-x11-keymap de pc105 deadgraveacute
 
 #start Hyprland setup if selected
 if [[ $DESKTOP == '1' ]]
-then 
-    curl https://raw.githubusercontent.com/PadTrick/hyperland_install/main/install.sh -o install.sh
+then
+    cd /home/$USER
+    curl https://raw.githubusercontent.com/PadTrick/hyperland_install/main/get_install.sh -o install.sh
     chmod +x install.sh
-    sh install.sh
+    
+    echo "-----------------------------------------------------------"
+    echo "You have to finish your Hyprland installation after reboot."
+    echo "Reboot, login and type the following command:"
+    echo "sh install.sh"
+    echo "-----------------------------------------------------------"
+else
+    echo "-------------------------------------------------"
+    echo "Install Complete, You can reboot now"
+    echo "-------------------------------------------------"
 fi
-
-echo "-------------------------------------------------"
-echo "Install Complete, You can reboot now"
-echo "-------------------------------------------------"
 
 REALEND
 
-
 arch-chroot /mnt sh next.sh
-
+rm /mnt/next.sh
