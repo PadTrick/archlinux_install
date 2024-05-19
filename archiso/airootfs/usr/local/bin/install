@@ -1,0 +1,7 @@
+#!/bin/sh
+loadkeys de-latin1
+curl https://raw.githubusercontent.com/padtrick/arch_install/main/current_install.sh -o current_install.sh
+chmod +x current_install.sh
+clear
+lsblk
+sh current_install.sh

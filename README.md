@@ -73,21 +73,39 @@ run these commands and change loadkeys to your choice, mine is german.
 
 just follow the few prompts and wait :)
 
-## INFO
+## create your own Archiso
 
-This script isn't perfect or finished.
+#Copy archiso files. Run in Konsole
+```bash
+mkdir -p ./archiso
+cd ./archiso
+cp -r /usr/share/archiso/configs/releng/* ./
+```
+#Add packages to packages.x86_64
+```bash
+git
+python
+python-setuptools
+```
 
-I will update soon the script to install all drivers for NVIDIA, AMD, IntelArc and Hyper-V.
+#Modify pacman.conf, remove # infront of these lines to enable multilib
+```bash
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+#copy the archiso/airootfs folder from this github-repo into your archiso folder or create the files manually
 
-After that, i try to add Windows/Archlinux dualboot to the script and put some instructions in howto setup it up.
+#Create a skel .zprofile for autolaunch. Run in Konsole (archiso folder)
+```bash
+cat <<\EOF >> ./airootfs/root/.zprofile
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && sh -c "loadkeys de-latin1; cd /root; chmod +x /usr/local/bin/greeting; chmod +x /usr/local/bin/parthelp; chmod +x /usr/local/bin/wifihelp; chmod +x /usr/local/bin/wifihelp; chmod +x /usr/local/bin/install; /usr/local/bin/greeting"
+EOF
+```
 
-it already works flawless if done manually :)
-
-Maybe i will also put some instructions here, to make a archiso yourself and put this script inside it and autostart it :)
-
-got it already working for me :P
-
-
+#Build. Run in Konsole (archiso folder)
+```bash
+mkarchiso -v -w work/ -o out/ ./
+```
 
 
 ## INFO

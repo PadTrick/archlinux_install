@@ -1,0 +1,4 @@
+#!/bin/sh
+echo -e "Connect to the Internet. Type >> wifihelp << to display WLAN informations."
+echo -e "Create your 3 partitions. 1 EFI, 1 SWAP & 1 LINUXSYSTEM. Type >> parthelp << to show some informations."
+echo -e "run >> install << to start installation"
