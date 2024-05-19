@@ -238,7 +238,7 @@ localectl --no-convert set-x11-keymap de pc105 deadgraveacute
 if [[ $DESKTOP == '1' ]]
 then
     cd /home/$USER
-    curl https://raw.githubusercontent.com/PadTrick/hyperland_install/main/get_install.sh -o install.sh
+    curl https://raw.githubusercontent.com/PadTrick/archlinux_install/main/get_hyprland_install.sh -o install.sh
     chmod +x install.sh
     
     echo "-----------------------------------------------------------"
