@@ -127,7 +127,7 @@ echo "-------------------------------------------------"
 pacman -S xorg xorg-server xorg-xinit --noconfirm --needed
 
 #DESKTOP
-pacman -S gwenview qt6-imageformats qt5-imageformats ark nano vlc paprefs filezilla pavucontrol partitionmanager barrier openssh htop wget iwd wireless_tools wpa_supplicant smartmontools xdg-utils --noconfirm --needed
+pacman -S gwenview qt6-imageformats qt5-imageformats ark nano vlc filezilla pavucontrol partitionmanager barrier openssh htop wget iwd wireless_tools wpa_supplicant smartmontools xdg-utils --noconfirm --needed
 
 #MISC
 pacman -S git-lfs qt6-5compat qt6-declarative qt6-svg tar dkms gnome-keyring ntfs-3g cabextract curl glib2 gnome-desktop gtk3 mesa-utils unrar p7zip psmisc python-dbus python-distro python-evdev python-gobject python-lxml python-pillow python-pip python-lxml fuse2 gawk jre17-openjdk neofetch xf86-input-wacom libwacom usbutils wacomtablet --noconfirm --needed
@@ -186,7 +186,7 @@ then
     pacman -S pipewire pipewire-alsa pipewire-jack pipewire-pulse gst-plugin-pipewire libpulse wireplumber --noconfirm --needed
 elif [[ $AUDIO == '2' ]]
 then
-    pacman -S pulseaudio pulseaudio-alsa --noconfirm --needed
+    pacman -S pulseaudio pulseaudio-alsa paprefs --noconfirm --needed
 else
     echo " No Audio Server selected, you have to install manually !!!"
 fi
