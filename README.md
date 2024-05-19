@@ -81,14 +81,14 @@ mkdir -p ./archiso
 cd ./archiso
 cp -r /usr/share/archiso/configs/releng/* ./
 ```
-#Add packages to packages.x86_64
+#Add packages to packages.x86_64 or copy from this github-repo
 ```bash
 git
 python
 python-setuptools
 ```
 
-#Modify pacman.conf, remove # infront of these lines to enable multilib
+#Modify pacman.conf, remove # infront of these lines to enable multilib or copy from this github-repo
 ```bash
 [multilib]
 Include = /etc/pacman.d/mirrorlist
