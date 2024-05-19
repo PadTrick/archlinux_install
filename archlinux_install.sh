@@ -194,7 +194,7 @@ fi
 echo "-------------------------------------------------"
 echo "Additional Packages"
 echo "-------------------------------------------------"
-pacman -S gnome-keyring ntfs-3g dkms linux-headers linux-lts-headers linux-zen-headers cabextract  curl  glib2  gnome-desktop  gtk3  mesa-utils  unrar p7zip  psmisc  python-dbus  python-distro  python-evdev  python-gobject  python-lxml  python-pillow python-pip python-lxml git fuse2 gawk polkit-kde-agent jre17-openjdk pavucontrol kwalletmanager partitionmanager neofetch spectacle vlc solaar paprefs xf86-input-wacom libwacom usbutils wacomtablet filezilla barrier --noconfirm --needed
+pacman -S gnome-keyring ntfs-3g dkms linux-headers linux-lts-headers linux-zen-headers cabextract  curl  glib2  gnome-desktop  gtk3  mesa-utils  unrar p7zip  psmisc  python-dbus  python-distro  python-evdev  python-gobject  python-lxml  python-pillow python-pip python-lxml git fuse2 gawk polkit-kde-agent jre17-openjdk pavucontrol kwalletmanager partitionmanager neofetch spectacle vlc solaar xf86-input-wacom libwacom usbutils wacomtablet filezilla barrier --noconfirm --needed
 
 echo "-------------------------------------------------"
 echo "Gaming Packages"
