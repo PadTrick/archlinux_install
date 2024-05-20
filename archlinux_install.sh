@@ -141,7 +141,7 @@ then
     systemctl enable sddm
 elif [[ $DESKTOP == '2' ]]
 then
-    pacman -S plasma plasma-meta plasma-workspace egl-wayland sddm konsole dolphin kate firefox dkms ark --noconfirm --needed
+    pacman -S plasma plasma-meta plasma-workspace egl-wayland sddm konsole dolphin kate firefox dkms ark paprefs polkit-kde-agent kwalletmanager spectacle --noconfirm --needed
     systemctl enable sddm    
 elif [[ $DESKTOP == '3' ]]
 then 
@@ -194,7 +194,7 @@ fi
 echo "-------------------------------------------------"
 echo "Additional Packages"
 echo "-------------------------------------------------"
-pacman -S gnome-keyring ntfs-3g dkms linux-headers linux-lts-headers linux-zen-headers cabextract  curl  glib2  gnome-desktop  gtk3  mesa-utils  unrar p7zip  psmisc  python-dbus  python-distro  python-evdev  python-gobject  python-lxml  python-pillow python-pip python-lxml git fuse2 gawk polkit-kde-agent jre17-openjdk pavucontrol kwalletmanager partitionmanager neofetch spectacle vlc solaar xf86-input-wacom libwacom usbutils wacomtablet filezilla barrier --noconfirm --needed
+pacman -S gnome-keyring ntfs-3g dkms linux-headers linux-lts-headers linux-zen-headers cabextract curl glib2 gnome-desktop gtk3 mesa-utils unrar p7zip psmisc python-dbus python-distro python-evdev python-gobject python-lxml python-pillow python-pip python-lxml git fuse2 gawk jre17-openjdk pavucontrol partitionmanager neofetch vlc xf86-input-wacom libwacom usbutils wacomtablet filezilla barrier --noconfirm --needed
 
 echo "-------------------------------------------------"
 echo "Gaming Packages"
