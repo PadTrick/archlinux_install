@@ -159,6 +159,8 @@ Install Windows 10 and shrink the Windows Partition (i have a 1TB NVME, i do a 5
 Boot up the Archlinux Iso and make sure you are connected to the internet. Read the `icwtl` help on howto setup wireless.
 
 
+
+
 If you want to use the official archinstall script, you need to mount the partitions manually (this part and also formatting seems broken in archinstall version 2.8.0).
 
 `mount /dev/nvme0n1p6 /mnt`
