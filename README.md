@@ -120,7 +120,8 @@ Boot up the Archlinux Iso.
 Enter 
 ```bash 
 lsblk
-``` to list Disks, after that run ```bash cfdisk /dev/YOURDEVICE``` (for me ```bash cfdisk /dev/nvme0n1```)
+```
+to list Disks, after that run ```bash cfdisk /dev/YOURDEVICE``` (for me ```bash cfdisk /dev/nvme0n1```)
 
 Create at least 1x Partition of ~600M Type EFI Filesystem, 1 Swap 4GB or more Swap Partition and 1x Partition for the actual Archlinux installation.
 
