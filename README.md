@@ -117,40 +117,36 @@ Install Windows 10 and shrink the Windows Partition (i have a 1TB NVME, i do a 5
 
 Boot up the Archlinux Iso.
 
-Enter 
-```bash 
-lsblk
-```
-to list Disks, after that run ```bash cfdisk /dev/YOURDEVICE``` (for me ```bash cfdisk /dev/nvme0n1```)
+Enter `lsblk` to list Disks, after that run `cfdisk /dev/YOURDEVICE` (for me `cfdisk /dev/nvme0n1`)
 
 Create at least 1x Partition of ~600M Type EFI Filesystem, 1 Swap 4GB or more Swap Partition and 1x Partition for the actual Archlinux installation.
 
-If you run the custom ```bash install ``` script, you can skip the formating the partitions.
+If you run the custom `install` script, you can skip the formating the partitions.
 
 
 After installation, we need to copy some win10 files to get dual working.
 
-list your disks with ```bash lsblk```
+list your disks with `lsblk`
 
 create a mountpoint
 
-```bashmkdir /mnt/win10```
+`mkdir /mnt/win10`
 
-```bash mount /dev/nvme0n1p1 /mnt/win10``` (change the to your disks)
+`mount /dev/nvme0n1p1 /mnt/win10` (change the to your disks)
 
 go into your mountpoint
 
-```bash cd /mnt/win10/EFI```
+`cd /mnt/win10/EFI`
 
-```bash ls``` to list your directory
+` ls` to list your directory and check if the folder `Microsoft` is present.
 
-copy the Microsoft folder into your ```/boot```
+copy the Microsoft folder into your `/boot`
 
-```bash cp -r /mnt/win10/EFI/Microsoft /boot/EFI```
+`cp -r /mnt/win10/EFI/Microsoft /boot/EFI`
 
 Now you can Reboot
 
-```bash reboot```
+`reboot`
 
 
 
@@ -158,62 +154,62 @@ Now you can Reboot
 
 If you want to use the official archinstall script, you need to mount the partitions manually (this part and also formatting seems broken in archinstall version 2.8.0).
 
-```bash mount /dev/nvme0n1p6 /mnt```
+`mount /dev/nvme0n1p6 /mnt`
 
-```bash mkdir /mnt/boot```
+`mkdir /mnt/boot`
 
-```bash mount /dev/nvme0n1p5 /mnt/boot```
+`mount /dev/nvme0n1p5 /mnt/boot`
 
-after this, start ```bash archinstall```
+after this, start `archinstall`
 
 Format those partitions (those commands are for my own disks, change to your needs)
 
-If you run the custom ```bash install ``` script, you can skip the formating.
+If you run the custom `install` script, you can skip the formating.
 
-```bash mkfs.vfat -F32 /dev/nvme0n1p5``` Format EFI Partition
+`mkfs.vfat -F32 /dev/nvme0n1p5` Format EFI Partition
 
-```bash mkswap /dev/nvme0n1p6``` Format Swap Partition
+`mkswap /dev/nvme0n1p6` Format Swap Partition
 
-```bash swapon /dev/nvme0n1p7``` Activate Swap Partition
+`swapon /dev/nvme0n1p7` Activate Swap Partition
 
-```bash mkfs.btrfs /dev/nvme0n1p7``` Format Archlinux Partition
+`mkfs.btrfs /dev/nvme0n1p7` Format Archlinux Partition
 
-Run ```bash install``` to start the Archlinux Installation with the custom Script.
+Run `install` to start the Archlinux Installation with the custom Script.
 
 
 all you need to make sure, is that you setup the mount points during Disk Setup.
 
-choose premounted configuration and type >>/mnt<< for root.
+choose premounted configuration and type `/mnt` for root.
 
-your efi partition should be >>/boot<<
+your efi partition should be `/boot`
 
-your archlinux partition should be >>/<<
+your archlinux partition should be `/`
 
 
 After installation, select YES to change the installation, we need to copy some win10 files.
 
-list your disks with ```bash lsblk```
+list your disks with `lsblk`
 
 create a mountpoint
 
-```bashmkdir /mnt/win10```
+`mkdir /mnt/win10`
 
-```bash mount /dev/nvme0n1p1 /mnt/win10``` (change the to your disks)
+`mount /dev/nvme0n1p1 /mnt/win10` (change the to your disks)
 
 go into your mountpoint
 
-```bash cd /mnt/win10/EFI```
+`cd /mnt/win10/EFI`
 
-```bash ls``` to list your directory
+`ls` to list your directory
 
-copy the Microsoft folder into your ```/boot```
+copy the Microsoft folder into your `/boot`
 
-```bash cp -r /mnt/win10/EFI/Microsoft /boot/EFI```
+`cp -r /mnt/win10/EFI/Microsoft /boot/EFI`
 
 Now you can Exit & Reboot
 
-```bash exit```
-```bash reboot```
+`exit`
+`reboot`
 
 
 
