@@ -115,7 +115,7 @@ This example is for EFI - W10 & Archlinux on 1 Disk, if u want to install Window
 
 Install Windows 10 and shrink the Windows Partition (i have a 1TB NVME, i do a 50/50 split).
 
-Boot up the Archlinux Iso.
+Boot up the Archlinux Iso and make sure you are connected to the internet. Use `wifihelp` to show some infos for wireless.
 
 Enter `lsblk` to list Disks, after that run `cfdisk /dev/YOURDEVICE` (for me `cfdisk /dev/nvme0n1`)
 
@@ -151,6 +151,12 @@ Now you can Reboot
 
 
 # Using the Official Install Script
+
+This example is for EFI - W10 & Archlinux on 1 Disk, if u want to install Windows and Archlinux on different disks, it should be something similar.
+
+Install Windows 10 and shrink the Windows Partition (i have a 1TB NVME, i do a 50/50 split).
+
+Boot up the Archlinux Iso and make sure you are connected to the internet. Read the `icwtl` help on howto setup wireless.
 
 If you want to use the official archinstall script, you need to mount the partitions manually (this part and also formatting seems broken in archinstall version 2.8.0).
 
