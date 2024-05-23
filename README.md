@@ -9,7 +9,7 @@ It will format your 3 partitions, which u need to create manually.
 
 It will also set the language and keymaps to german.
 
-
+  `
 ## Prerequisites
 
 boot your archlinux iso, then enable multilib in /etc/pacman.conf.
@@ -93,7 +93,7 @@ python-setuptools
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
-#copy the archiso/airootfs folder from this github-repo into your archiso folder or create the files manually
+#Copy the archiso/airootfs folder from this github-repo into your archiso folder or create the files manually
 
 #Create a skel .zprofile for autolaunch. Run in Konsole (archiso folder)
 ```bash
