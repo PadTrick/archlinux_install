@@ -65,7 +65,7 @@ echo "------------------------"
 echo "-- Setup Dependencies --"
 echo "------------------------"
 
-pacstrap /mnt networkmanager network-manager-applet nano btrfs-progs intel-ucode curl git openssh htop wget iwd wireless_tools wpa_supplicant unzip smartmontools xdg-utils cpupower --noconfirm --needed
+pacstrap /mnt networkmanager network-manager-applet nano vim btrfs-progs intel-ucode curl git openssh htop wget iwd wireless_tools wpa_supplicant unzip smartmontools xdg-utils cpupower --noconfirm --needed
 
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -121,7 +121,7 @@ echo "-------------------------------------------------"
 pacman -S xorg xorg-server xorg-xinit --noconfirm --needed
 
 #DESKTOP
-pacman -S gwenview qt6-imageformats qt5-imageformats ark nano vlc filezilla firefox pavucontrol partitionmanager barrier openssh htop wget iwd wireless_tools wpa_supplicant smartmontools xdg-utils --noconfirm --needed
+pacman -S gwenview qt6-imageformats qt5-imageformats ark vlc filezilla firefox pavucontrol partitionmanager barrier --noconfirm --needed
 
 #MISC
 pacman -S git-lfs qt6-5compat qt6-declarative qt6-svg tar dkms gnome-keyring ntfs-3g ark cabextract curl glib2 gnome-desktop gtk3 mesa-utils unrar p7zip psmisc python-dbus python-distro python-evdev python-gobject python-lxml python-pillow python-pip python-lxml fuse2 gawk jre17-openjdk neofetch xf86-input-wacom libwacom usbutils wacomtablet --noconfirm --needed
@@ -131,7 +131,7 @@ systemctl enable NetworkManager
 #DESKTOP ENVIRONMENT
 if [[ $DESKTOP == '1' ]]
 then 
-    pacman -S polkit hyprland dunst kitty dolphin wofi xdg-desktop-portal-hyprland qt5-wayland qt6-wayland sddm --noconfirm --needed
+    pacman -S polkit hyprland dunst kitty wofi xdg-desktop-portal-hyprland qt5-wayland qt6-wayland sway swaybg swaylock swayidle waybar dmenu brightnessctl grim slurp pavucontrol foot xorg-xwayland sddm --noconfirm --needed
     systemctl enable sddm
 elif [[ $DESKTOP == '2' ]]
 then
