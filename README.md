@@ -117,7 +117,7 @@ mkarchiso -v -w work/ -o out/ ./
 
 ### Using the Custom Install Script
 
-This example is for EFI - W10 & Archlinux on 1 Disk, if u want to install Windows and Archlinux on different disks, it should be something similar.
+#### This example is for EFI - W10 & Archlinux on 1 Disk, if u want to install Windows and Archlinux on different disks, it should be something similar.
 
 Install Windows 10 and shrink the Windows Partition (i have a 1TB NVME, i do a 50/50 split).
 
@@ -146,9 +146,13 @@ go into your mountpoint
 
 ` ls` to list your directory and check if the folder `Microsoft` is present.
 
-copy the Microsoft folder into your `/boot`
+copy the Microsoft folder into your `/mnt/boot`
 
-`cp -r /mnt/win10/EFI/Microsoft /boot/EFI`
+`cp -r /mnt/win10/EFI/Microsoft /mnt/boot/EFI`
+
+check if its inside the correct folder `/mnt/boot` 
+
+`cd /mnt/boot/EFI` and `ls`
 
 Now you can Reboot
 
@@ -158,7 +162,7 @@ Now you can Reboot
 
 ### Using the Official Install Script
 
-This example is for EFI - W10 & Archlinux on 1 Disk, if u want to install Windows and Archlinux on different disks, it should be something similar.
+#### This example is for EFI - W10 & Archlinux on 1 Disk, if u want to install Windows and Archlinux on different disks, it should be something similar.
 
 Install Windows 10 and shrink the Windows Partition (i have a 1TB NVME, i do a 50/50 split).
 
