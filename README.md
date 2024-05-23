@@ -9,8 +9,6 @@ It will format your 3 partitions, which u need to create manually.
 
 It will also set the language and keymaps to german.
 
-#### Prerequisites
-### Prerequisites
 ## Prerequisites
 
 boot your archlinux iso, then enable multilib in /etc/pacman.conf.
@@ -55,6 +53,8 @@ u should have  3 partitions now like:
 `/dev/sda2` for your swap
 
 `/dev/sda3` for your filesystem
+
+
 ## Installation
 
 With your 3 partitions created you can start the installation.
@@ -110,7 +110,7 @@ mkarchiso -v -w work/ -o out/ ./
 
 ## Dualboot Archlinux & Windows 10/11
 
-# Using the Custom Install Script
+### Using the Custom Install Script
 
 This example is for EFI - W10 & Archlinux on 1 Disk, if u want to install Windows and Archlinux on different disks, it should be something similar.
 
@@ -151,7 +151,7 @@ Now you can Reboot
 
 
 
-# Using the Official Install Script
+### Using the Official Install Script
 
 This example is for EFI - W10 & Archlinux on 1 Disk, if u want to install Windows and Archlinux on different disks, it should be something similar.
 
@@ -160,9 +160,7 @@ Install Windows 10 and shrink the Windows Partition (i have a 1TB NVME, i do a 5
 Boot up the Archlinux Iso and make sure you are connected to the internet. Read the `icwtl` help on howto setup wireless.
 
 
-
-
-If you want to use the official archinstall script, you need to mount the partitions manually (this part and also formatting seems broken in archinstall version 2.8.0).
+####If you want to use the official archinstall script, you need to mount the partitions manually (this part and also formatting seems broken in archinstall version 2.8.0).
 
 `mount /dev/nvme0n1p6 /mnt`
 
@@ -175,7 +173,7 @@ after this, start `archinstall`
 Format those partitions (those commands are for my own disks, change to your needs)
 
 
-If you run the custom `install` script, you can skip the formating.
+####If you run the custom `install` script, you can skip the formating.
 
 `mkfs.vfat -F32 /dev/nvme0n1p5` Format EFI Partition
 
