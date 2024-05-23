@@ -197,6 +197,7 @@ copy the Microsoft folder into your `/boot`
 Now you can Exit & Reboot
 
 `exit`
+
 `reboot`
 
 ## Activate Dualboot after the Installation is already finished and you have rebooted
