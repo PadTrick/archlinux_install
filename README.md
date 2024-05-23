@@ -9,6 +9,16 @@ It will format your 3 partitions, which u need to create manually.
 
 It will also set the language and keymaps to german.
 
+## Supported Configurations
+
+- **Desktop Environments**: Hyprland, KDE, Gnome, XFCE
+  - KDE works great
+  - Hyprland works, but can have some issues with gaming (working on it)
+  - Gnome & XFCE aren't tested
+- **Driver Presets**: Nvidia proprietary, AMD (Mesa), Intel (Mesa, incl. Intel Arc), Hyper-V
+- **Audio Servers**: Pipewire & Pulseaudio
+
+
 ## Prerequisites
 
 boot your archlinux iso, then enable multilib in /etc/pacman.conf.
@@ -56,7 +66,7 @@ u should have  3 partitions now like:
 `/dev/sda1` for your efi
 
 `/dev/sda2` for your swap
-
+#### If you run the custom `install` script, you can skip the formating.
 `/dev/sda3` for your filesystem
 
 
@@ -161,7 +171,7 @@ choose premounted configuration and type `/mnt` for root.
 
 your efi partition should be `/boot`
 
-your archlinux partition should be `/`
+your archlinux partition should be `/`#### If you run the custom `install` script, you can skip the formating.
 
 
 #### After installation, select YES to change the installation, we need to copy some win10 files.
