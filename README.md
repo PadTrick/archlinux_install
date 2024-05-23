@@ -27,6 +27,11 @@ to
   Include = /etc/pacman.d/mirrorlist
 ```
 
+or run the folloing command to change it
+
+`sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf`
+
+
 `CTRL+O` to save and `CTRL+X` to close nano
 
 list and partition your disk
