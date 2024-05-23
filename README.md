@@ -79,40 +79,6 @@ run these commands and change loadkeys to your choice, mine is german.
 
 just follow the few prompts and wait :)
 
-## Create your own Archiso
-
-Copy archiso files. Run in Konsole
-```bash
-mkdir -p ./archiso
-cd ./archiso
-cp -r /usr/share/archiso/configs/releng/* ./
-```
-Add packages to packages.x86_64 or copy from this github-repo
-```bash
-git
-python
-python-setuptools
-```
-
-Modify pacman.conf, remove # infront of these lines to enable multilib or copy from this github-repo
-```bash
-[multilib]
-Include = /etc/pacman.d/mirrorlist
-```
-Copy the archiso/airootfs folder from this github-repo into your archiso folder or create the files manually
-
-Create a skel .zprofile for autolaunch. Run in Konsole (archiso folder)
-```bash
-cat <<\EOF >> ./airootfs/root/.zprofile
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && sh -c "loadkeys de-latin1; cd /root; chmod +x /usr/local/bin/greeting; chmod +x /usr/local/bin/parthelp; chmod +x /usr/local/bin/wifihelp; chmod +x /usr/local/bin/wifihelp; chmod +x /usr/local/bin/install; /usr/local/bin/greeting"
-EOF
-```
-
-Build. Run in Konsole (archiso folder)
-```bash
-mkarchiso -v -w work/ -o out/ ./
-```
-
 ## Dualboot Archlinux & Windows 10/11
 
 ### Using the Custom Install Script
@@ -225,6 +191,39 @@ Now you can Exit & Reboot
 `exit`
 `reboot`
 
+## Create your own Archiso
+
+Copy archiso files. Run in Konsole
+```bash
+mkdir -p ./archiso
+cd ./archiso
+cp -r /usr/share/archiso/configs/releng/* ./
+```
+Add packages to packages.x86_64 or copy from this github-repo
+```bash
+git
+python
+python-setuptools
+```
+
+Modify pacman.conf, remove # infront of these lines to enable multilib or copy from this github-repo
+```bash
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+Copy the archiso/airootfs folder from this github-repo into your archiso folder or create the files manually
+
+Create a skel .zprofile for autolaunch. Run in Konsole (archiso folder)
+```bash
+cat <<\EOF >> ./airootfs/root/.zprofile
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && sh -c "loadkeys de-latin1; cd /root; chmod +x /usr/local/bin/greeting; chmod +x /usr/local/bin/parthelp; chmod +x /usr/local/bin/wifihelp; chmod +x /usr/local/bin/wifihelp; chmod +x /usr/local/bin/install; /usr/local/bin/greeting"
+EOF
+```
+
+Build. Run in Konsole (archiso folder)
+```bash
+mkarchiso -v -w work/ -o out/ ./
+```
 
 
 
