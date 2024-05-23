@@ -34,7 +34,7 @@ or run the folloing command to change it
 `sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf`
 
 
-list and partition your disk
+#### list and partition your disk
 
 create 3 partitions:
 
