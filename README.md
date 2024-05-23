@@ -96,7 +96,7 @@ Enter `lsblk` to list Disks, after that run `cfdisk /dev/YOURDEVICE` (for me `cf
 If you run the custom `install` script, you can skip the formating the partitions.
 
 
-#### After installation, we need to copy some win10 files to get dual working.
+#### After installation, dont reboot. we need to copy some win10 files to get dual working.
 
 list your disks with `lsblk`
 
@@ -136,8 +136,6 @@ Boot up the Archlinux Iso and make sure you are connected to the internet. Read 
 
 Create and Format those 3 partitions (those commands are for my own disks, change to your needs)
 
-#### If you run the custom `install` script, you can skip the formating.
-
 `mkfs.vfat -F32 /dev/nvme0n1p5` Format EFI Partition
 
 `mkswap /dev/nvme0n1p6` Format Swap Partition
@@ -148,7 +146,7 @@ Create and Format those 3 partitions (those commands are for my own disks, chang
 
 #### If you want to use the official archinstall script, you need to mount the partitions manually (this part and also formatting seems broken in archinstall version 2.8.0).
 
-`mount /dev/nvme0n1p6 /mnt`
+`mount /dev/nvme0n1p6 /mnt` (change to your disk)
 
 `mkdir /mnt/boot`
 
@@ -190,6 +188,35 @@ Now you can Exit & Reboot
 
 `exit`
 `reboot`
+
+## Activate Dualboot after the Installation is already finished and you have rebooted
+list your disks with `lsblk`
+
+create a mountpoint
+
+`mkdir /mnt/win10`
+
+`mount /dev/nvme0n1p1 /mnt/win10` (change the to your disks)
+
+go into your mountpoint
+
+`cd /mnt/win10/EFI`
+
+` ls` to list your directory and check if the folder `Microsoft` is present.
+
+copy the Microsoft folder into your `/boot`
+
+`cp -r /mnt/win10/EFI/Microsoft /boot/EFI`
+
+check if its inside the correct folder `/boot`
+
+`cd /boot/EFI` and `ls`
+
+Now you can Reboot and check if its working
+
+`reboot`
+
+
 
 ## Create your own Archiso
 
