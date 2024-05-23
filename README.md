@@ -10,7 +10,6 @@ It will format your 3 partitions, which u need to create manually.
 It will also set the language and keymaps to german.
 
 
-`   
 ## Prerequisites
 
 boot your archlinux iso, then enable multilib in /etc/pacman.conf.
