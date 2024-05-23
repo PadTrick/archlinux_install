@@ -1,5 +1,5 @@
 
-# Archlinux Install Script
+# Archlinux Install Script (currently only EFI supported)
 
 ### Custom archlinux script for installation
 
@@ -235,6 +235,8 @@ Now you can Exit & Reboot
 ## INFO
 
 This script isn't perfect or finished.
+
+Looking into getting Grub supported aswell. 
 
 Currently Hyprland installation has some minor issues with gaming, i'm looking into it.
 
