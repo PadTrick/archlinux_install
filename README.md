@@ -64,9 +64,9 @@ u should have 3 partitions now like:
 
 `/dev/sda2` for your swap
 
-#### If you run the custom `install` script, you can skip the formatting.
-
 `/dev/sda3` for your filesystem
+
+#### If you run the custom `install` script, you can skip the formatting.
 
 ## Installation
 
