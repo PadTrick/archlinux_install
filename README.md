@@ -169,9 +169,12 @@ after this, start `archinstall`
 
 choose premounted configuration and type `/mnt` for root.
 
-your efi partition should be `/boot`
+your efi partition should be mounted at `/boot`
 
-your archlinux partition should be `/`#### If you run the custom `install` script, you can skip the formating.
+your archlinux partition should be mounted at `/`
+
+
+#### If you run the custom `install` script, you can skip the formating.
 
 
 #### After installation, select YES to change the installation, we need to copy some win10 files.
