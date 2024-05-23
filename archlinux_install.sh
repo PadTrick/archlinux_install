@@ -53,34 +53,28 @@ mount "${ROOT}" /mnt
 mkdir /mnt/boot
 mount "${EFI}" /mnt/boot
 
-echo "--------------------------------------"
-echo "-- INSTALLING Arch Linux BASE on Main Drive       --"
-echo "--------------------------------------"
+echo "----------------------------------------------"
+echo "-- INSTALLING Arch Linux BASE on Main Drive --"
+echo "----------------------------------------------"
 pacstrap /mnt base base-devel --noconfirm --needed
 
 # kernel
-pacstrap /mnt linux linux-lts linux-zen linux-firmware linux-headers linux-lts-headers linux-zen-headers --noconfirm --needed
+pacstrap /mnt linux-lts linux-zen linux-firmware linux-lts-headers linux-zen-headers --noconfirm --needed
 
-echo "--------------------------------------"
-echo "-- Setup Dependencies               --"
-echo "--------------------------------------"
+echo "------------------------"
+echo "-- Setup Dependencies --"
+echo "------------------------"
 
-pacstrap /mnt networkmanager network-manager-applet nano btrfs-progs intel-ucode curl git vim openssh htop wget iwd wireless_tools wpa_supplicant unzip smartmontools xdg-utils cpupower --noconfirm --needed
+pacstrap /mnt networkmanager network-manager-applet nano btrfs-progs intel-ucode curl git openssh htop wget iwd wireless_tools wpa_supplicant unzip smartmontools xdg-utils cpupower --noconfirm --needed
 
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
-echo "--------------------------------------"
-echo "-- Bootloader Installation  --"
-echo "--------------------------------------"
+echo "-----------------------------"
+echo "-- Bootloader Installation --"
+echo "-----------------------------"
 bootctl install --path /mnt/boot
 echo "default arch-zen.conf" >> /mnt/boot/loader/loader.conf
-cat <<EOF > /mnt/boot/loader/entries/arch.conf
-title Arch Linux
-linux /vmlinuz-linux
-initrd /initramfs-linux.img
-options root=${ROOT} rw
-EOF
 
 cat <<EOF > /mnt/boot/loader/entries/arch-zen.conf
 title Arch Linux ZEN
@@ -127,10 +121,10 @@ echo "-------------------------------------------------"
 pacman -S xorg xorg-server xorg-xinit --noconfirm --needed
 
 #DESKTOP
-pacman -S gwenview qt6-imageformats qt5-imageformats ark nano vlc filezilla pavucontrol partitionmanager barrier openssh htop wget iwd wireless_tools wpa_supplicant smartmontools xdg-utils --noconfirm --needed
+pacman -S gwenview qt6-imageformats qt5-imageformats ark nano vlc filezilla firefox pavucontrol partitionmanager barrier openssh htop wget iwd wireless_tools wpa_supplicant smartmontools xdg-utils --noconfirm --needed
 
 #MISC
-pacman -S git-lfs qt6-5compat qt6-declarative qt6-svg tar dkms gnome-keyring ntfs-3g cabextract curl glib2 gnome-desktop gtk3 mesa-utils unrar p7zip psmisc python-dbus python-distro python-evdev python-gobject python-lxml python-pillow python-pip python-lxml fuse2 gawk jre17-openjdk neofetch xf86-input-wacom libwacom usbutils wacomtablet --noconfirm --needed
+pacman -S git-lfs qt6-5compat qt6-declarative qt6-svg tar dkms gnome-keyring ntfs-3g ark cabextract curl glib2 gnome-desktop gtk3 mesa-utils unrar p7zip psmisc python-dbus python-distro python-evdev python-gobject python-lxml python-pillow python-pip python-lxml fuse2 gawk jre17-openjdk neofetch xf86-input-wacom libwacom usbutils wacomtablet --noconfirm --needed
 
 systemctl enable NetworkManager
 
@@ -141,7 +135,7 @@ then
     systemctl enable sddm
 elif [[ $DESKTOP == '2' ]]
 then
-    pacman -S plasma plasma-meta plasma-workspace egl-wayland sddm konsole dolphin kate firefox dkms ark paprefs polkit-kde-agent kwalletmanager spectacle --noconfirm --needed
+    pacman -S plasma plasma-meta plasma-workspace egl-wayland sddm konsole dolphin kate dkms paprefs polkit-kde-agent kwalletmanager spectacle --noconfirm --needed
     systemctl enable sddm    
 elif [[ $DESKTOP == '3' ]]
 then 
@@ -231,8 +225,10 @@ cat <<EOF > /etc/hosts
 127.0.1.1	$HOSTNAME.localdomain	$HOSTNAME
 EOF
 
-localectl --no-convert set-keymap de-latin1-nodeadkeys
-localectl --no-convert set-x11-keymap de pc105 deadgraveacute
+#localectl --no-convert set-keymap de-latin1-nodeadkeys
+#localectl --no-convert set-x11-keymap de pc105 deadgraveacute
+
+sed -i 's/^#timeout 3/timeout 10/' /boot/loader/loader.conf
 
 #start Hyprland setup if selected
 if [[ $DESKTOP == '1' ]]

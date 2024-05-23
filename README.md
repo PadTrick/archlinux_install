@@ -73,7 +73,7 @@ run these commands and change loadkeys to your choice, mine is german.
 
 just follow the few prompts and wait :)
 
-## create your own Archiso
+## Create your own Archiso
 
 #Copy archiso files. Run in Konsole
 ```bash
@@ -107,11 +107,117 @@ EOF
 mkarchiso -v -w work/ -o out/ ./
 ```
 
+## Dualboot Archlinux & Windows 10/11
+
+# Using the Custom Install Script
+
+This example is for EFI - W10 & Archlinux on 1 Disk, if u want to install Windows and Archlinux on different disks, it should be something similar.
+
+Install Windows 10 and shrink the Windows Partition (i have a 1TB NVME, i do a 50/50 split).
+
+Boot up the Archlinux Iso.
+
+Enter ```bash lsblk``` to list Disks, after that run ```bash cfdisk /dev/YOURDEVICE``` (for me ```bash cfdisk /dev/nvme0n1```)
+
+Create at least 1x Partition of ~600M Type EFI Filesystem, 1 Swap 4GB or more Swap Partition and 1x Partition for the actual Archlinux installation.
+
+If you run the custom ```bash install ``` script, you can skip the formating the partitions.
+
+
+After installation, we need to copy some win10 files to get dual working.
+
+list your disks with ```bash lsblk```
+
+create a mountpoint
+
+```bashmkdir /mnt/win10```
+
+```bash mount /dev/nvme0n1p1 /mnt/win10``` (change the to your disks)
+
+go into your mountpoint
+
+```bash cd /mnt/win10/EFI```
+
+```bash ls``` to list your directory
+
+copy the Microsoft folder into your ```/boot```
+
+```bash cp -r /mnt/win10/EFI/Microsoft /boot/EFI```
+
+Now you can Reboot
+
+```bash reboot```
+
+
+
+# Using the Official Install Script
+
+If you want to use the official archinstall script, you need to mount the partitions manually (this part and also formatting seems broken in archinstall version 2.8.0).
+
+```bash mount /dev/nvme0n1p6 /mnt```
+
+```bash mkdir /mnt/boot```
+
+```bash mount /dev/nvme0n1p5 /mnt/boot```
+
+after this, start ```bash archinstall```
+
+Format those partitions (those commands are for my own disks, change to your needs)
+
+If you run the custom ```bash install ``` script, you can skip the formating.
+
+```bash mkfs.vfat -F32 /dev/nvme0n1p5``` Format EFI Partition
+
+```bash mkswap /dev/nvme0n1p6``` Format Swap Partition
+
+```bash swapon /dev/nvme0n1p7``` Activate Swap Partition
+
+```bash mkfs.btrfs /dev/nvme0n1p7``` Format Archlinux Partition
+
+Run ```bash install``` to start the Archlinux Installation with the custom Script.
+
+
+all you need to make sure, is that you setup the mount points during Disk Setup.
+
+choose premounted configuration and type >>/mnt<< for root.
+
+your efi partition should be >>/boot<<
+
+your archlinux partition should be >>/<<
+
+
+After installation, select YES to change the installation, we need to copy some win10 files.
+
+list your disks with ```bash lsblk```
+
+create a mountpoint
+
+```bashmkdir /mnt/win10```
+
+```bash mount /dev/nvme0n1p1 /mnt/win10``` (change the to your disks)
+
+go into your mountpoint
+
+```bash cd /mnt/win10/EFI```
+
+```bash ls``` to list your directory
+
+copy the Microsoft folder into your ```/boot```
+
+```bash cp -r /mnt/win10/EFI/Microsoft /boot/EFI```
+
+Now you can Exit & Reboot
+
+```bash exit```
+```bash reboot```
+
+
+
 
 ## INFO
 
 This script isn't perfect or finished.
 
-Windows/Archlinux dualboot works, adding the instructions in howto setup it up, soon
+Currently Hyprland installation has some minor issues with gaming, i'm looking into it.
 
-it already works flawless if done manually :)
+Could be the dot files, learning atm howto config Hyprland myself from scratch :)
