@@ -1,7 +1,7 @@
 
 # Archlinux Install Script
 
-Custom archlinux script for installation
+### Custom archlinux script for installation
 
 This Script will install archlinux without using the official archinstall script.
 
@@ -59,7 +59,7 @@ u should have  3 partitions now like:
 
 With your 3 partitions created you can start the installation.
 
-install.sh is only needed, if u put the script like me inside a ISO. I'm a bit lazy, i dont want to always make a new iso if i make a change in 1 line :)
+The file `get_current_installscript.sh` is only needed, if u put the script like me inside a ISO. I'm a bit lazy, i dont want to always make a new iso if i make a change in 1 line :)
 
 run these commands and change loadkeys to your choice, mine is german.
 
@@ -76,34 +76,34 @@ just follow the few prompts and wait :)
 
 ## Create your own Archiso
 
-#Copy archiso files. Run in Konsole
+Copy archiso files. Run in Konsole
 ```bash
 mkdir -p ./archiso
 cd ./archiso
 cp -r /usr/share/archiso/configs/releng/* ./
 ```
-#Add packages to packages.x86_64 or copy from this github-repo
+Add packages to packages.x86_64 or copy from this github-repo
 ```bash
 git
 python
 python-setuptools
 ```
 
-#Modify pacman.conf, remove # infront of these lines to enable multilib or copy from this github-repo
+Modify pacman.conf, remove # infront of these lines to enable multilib or copy from this github-repo
 ```bash
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
-#Copy the archiso/airootfs folder from this github-repo into your archiso folder or create the files manually
+Copy the archiso/airootfs folder from this github-repo into your archiso folder or create the files manually
 
-#Create a skel .zprofile for autolaunch. Run in Konsole (archiso folder)
+Create a skel .zprofile for autolaunch. Run in Konsole (archiso folder)
 ```bash
 cat <<\EOF >> ./airootfs/root/.zprofile
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && sh -c "loadkeys de-latin1; cd /root; chmod +x /usr/local/bin/greeting; chmod +x /usr/local/bin/parthelp; chmod +x /usr/local/bin/wifihelp; chmod +x /usr/local/bin/wifihelp; chmod +x /usr/local/bin/install; /usr/local/bin/greeting"
 EOF
 ```
 
-#Build. Run in Konsole (archiso folder)
+Build. Run in Konsole (archiso folder)
 ```bash
 mkarchiso -v -w work/ -o out/ ./
 ```
@@ -120,12 +120,12 @@ Boot up the Archlinux Iso and make sure you are connected to the internet. Use `
 
 Enter `lsblk` to list Disks, after that run `cfdisk /dev/YOURDEVICE` (for me `cfdisk /dev/nvme0n1`)
 
-Create at least 1x Partition of ~600M Type EFI Filesystem, 1 Swap 4GB or more Swap Partition and 1x Partition for the actual Archlinux installation.
+#### Create at least 1x Partition of ~600M Type EFI Filesystem, 1 Swap 4GB or more Swap Partition and 1x Partition for the actual Archlinux installation.
 
 If you run the custom `install` script, you can skip the formating the partitions.
 
 
-After installation, we need to copy some win10 files to get dual working.
+#### After installation, we need to copy some win10 files to get dual working.
 
 list your disks with `lsblk`
 

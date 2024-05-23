@@ -18,7 +18,7 @@ read USER
 echo "Please enter your password"
 read PASSWORD 
 
-4echo "Please choose Your Desktop Environment"
+echo "Please choose Your Desktop Environment"
 echo "1. Hyprland"
 echo "2. KDE"
 echo "3. GNOME"
