@@ -159,10 +159,10 @@ then
     pacman -S vulkan-icd-loader lib32-vulkan-icd-loader nvidia-utils lib32-nvidia-utils nvidia-settings lib32-opencl-nvidia opencl-nvidia --noconfirm --needed
 elif [[ $GPU == '2' ]]
 then
-    pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon amdvlk lib32-amdvlk libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau --noconfirm --needed
+    pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau --noconfirm --needed
 elif [[ $GPU == '3' ]]
 then
-    pacman -S intel-graphics-compiler intel-compute-runtime mesa lib32-mesa vulkan-headers vulkan-validation-layers vulkan-tools libva-intel-driver libvdpau-va-gl libva-utils intel-ucode intel-media-driver linux-firmware directx-headers mesa-vdpau lib32-mesa-vdpau libva-mesa-driver lib32-libva-mesa-driver vulkan-mesa-layers lib32-vulkan-mesa-layers lib32-opencl-clover-mesa opencl-clover-mesa --noconfirm --needed
+    pacman -S intel-graphics-compiler intel-compute-runtime mesa lib32-mesa vulkan-headers vulkan-validation-layers vulkan-tools libva-intel-driver libvdpau-va-gl libva-utils intel-ucode intel-media-driver linux-firmware directx-headers mesa-vdpau lib32-mesa-vdpau libva-mesa-driver lib32-libva-mesa-driver vulkan-mesa-layers lib32-vulkan-mesa-layers lib32-opencl-clover-mesa opencl-clover-mesa vulkan-intel lib32-vulkan-intel --noconfirm --needed
 elif [[ $GPU == '4' ]]
 then
     pacman -S xf86-video-fbdev --noconfirm --needed
@@ -193,7 +193,28 @@ pacman -S gnome-keyring ntfs-3g dkms linux-headers linux-lts-headers linux-zen-h
 echo "-------------------------------------------------"
 echo "Gaming Packages"
 echo "-------------------------------------------------"
-pacman -S wine-staging winetricks mangohud lib32-mangohud goverlay giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba dosbox steam gamemode lib32-gamemode lutris fmt lib32-sdl2 lib32-sdl2_image lib32-sdl2_mixer lib32-sdl2_ttf sdl2 sdl2_image sdl2_mixer sdl2_ttf --noconfirm --needed
+pacman -S wine-staging winetricks mangohud lib32-mangohud goverlay giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba dosbox gamemode lib32-gamemode lutris fmt lib32-sdl2 lib32-sdl2_image lib32-sdl2_mixer lib32-sdl2_ttf sdl2 sdl2_image sdl2_mixer sdl2_ttf --noconfirm --needed
+if [[ $GPU == '1' ]]
+then 
+    pacman -S steam nvidia-utils lib32-nvidia-utils --noconfirm --needed
+elif [[ $GPU == '2' ]]
+then
+    pacman -S steam vulkan-radeon lib32-vulkan-radeon --noconfirm --needed
+elif [[ $GPU == '3' ]]
+then
+    pacman -S steam vulkan-intel lib32-vulkan-intel --noconfirm --needed
+elif [[ $GPU == '4' ]]
+then
+    pacman -S steam vulkan-swrast lib32-vulkan-swrast --needed
+else
+    echo "pacman -S steam"
+fi
+
+
+
+
+
+
 
 echo "-------------------------------------------------"
 echo "Setup Language to DE and set locale"
